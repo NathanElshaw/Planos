@@ -1,5 +1,6 @@
 "use client";
 
+import Hamburger from "hamburger-react";
 import { NextPage } from "next";
 import React from "react";
 //InterFaces
@@ -30,14 +31,15 @@ export const Navbar = () => {
                 <Hero_Button text_feild="Sign Up!" />
               </li>
             </ol>
-            <div
-              className="flex sm:hidden"
-              onClick={() => {
-                set_dropdown_Toggle(!dropdown_Toggled);
-              }}
-            >
-              <Hero_Button
-                text_feild={dropdown_Toggled === true ? "Close" : "Menu"}
+            <div className="flex justify-center items-center rounded-md max-h-[50px] max-w[50px] sm:hidden bg-mainContrast">
+              <Hamburger
+                toggled={dropdown_Toggled}
+                toggle={() => {
+                  set_dropdown_Toggle(!dropdown_Toggled);
+                }}
+                color="#272727"
+                size={26}
+                duration={0.5}
               />
             </div>
             <div

@@ -23,22 +23,22 @@ export const Navbar = () => {
           <div className="flex">
             <ol className="hidden md:flex justify-between items-center gap-x-6">
               <li>
-                <a href="/about">About</a>
+                <a href="#about">About</a>
               </li>
               <li>
-                <a href="/info">More Info</a>
+                <a href="#info">More Info</a>
               </li>
               <li>
                 <Hero_Button text_feild="Sign Up!" />
               </li>
             </ol>
-            <div className="flex justify-center items-center max-h-[40px] rounded-md sm:hidden bg-mainContrast">
+            <div className="flex justify-center items-center max-h-[40px] sm:hidden">
               <Hamburger
                 toggled={dropdown_Toggled}
                 toggle={() => {
                   set_dropdown_Toggle(!dropdown_Toggled);
                 }}
-                color="#272727"
+                color="#C4FE76"
                 size={20}
                 distance="lg"
                 duration={0.3}
@@ -47,19 +47,18 @@ export const Navbar = () => {
             <div
               className={
                 dropdown_Toggled === true
-                  ? "absolute top-[58px] w-[150px] translate-x-[-45%] rounded-md px-2 py-2 bg-mainDark border border-darkGrey"
+                  ? "absolute top-[58px] w-[150px] translate-x-[-63%] rounded-md px-2 py-2 bg-mainDark border border-darkGrey"
                   : "hidden"
               }
             >
-              <div className="flex flex-col gap-y-3">
+              <div className="flex flex-col text-xl gap-y-3">
+                <a href="#about">About</a>
+                <a href="#info">More Info</a>
                 <div>
-                  <a href="/about">About</a>
-                </div>
-                <div>
-                  <a href="/info">More Info</a>
-                </div>
-                <div>
-                  <Hero_Button text_feild="Sign Up!" />
+                  <Hero_Button
+                    text_feild="Sign Up!"
+                    styles="bg-mainDark text-mainContrast border border-mainContrast hover:bg-darkGrey"
+                  />
                 </div>
               </div>
             </div>

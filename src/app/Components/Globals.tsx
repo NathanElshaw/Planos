@@ -14,7 +14,7 @@ export const Navbar = () => {
     React.useState<boolean>(false);
 
   return (
-    <section className=" shadow-sm rounded-b-md shadow-darkGrey">
+    <section className="shadow-sm rounded-b-md shadow-darkGrey sticky">
       <nav className="mx-2 min-h-[60px] max-h-[60px] flex flex-col justify-center">
         <div className="flex justify-between">
           <div className="flex items-center">
@@ -23,16 +23,16 @@ export const Navbar = () => {
           <div className="flex">
             <ol className="hidden md:flex justify-between items-center gap-x-6">
               <li>
-                <a href="#about">About</a>
+                <a href="/about-us">About</a>
               </li>
               <li>
-                <a href="#info">More Info</a>
+                <a href="/info">More Info</a>
               </li>
               <li>
                 <Hero_Button text_feild="Sign Up!" />
               </li>
             </ol>
-            <div className="flex justify-center items-center max-h-[40px] sm:hidden">
+            <div className="flex justify-center items-center max-h-[40px] md:hidden">
               <Hamburger
                 toggled={dropdown_Toggled}
                 toggle={() => {
@@ -52,8 +52,8 @@ export const Navbar = () => {
               }
             >
               <div className="flex flex-col text-xl gap-y-3">
-                <a href="#about">About</a>
-                <a href="#info">More Info</a>
+                <a href="/about-us">About</a>
+                <a href="/info">More Info</a>
                 <div>
                   <Hero_Button
                     text_feild="Sign Up!"
@@ -77,5 +77,29 @@ export const Hero_Button: NextPage<Hero_Button_Props> = (props) => {
     >
       {text_feild}
     </button>
+  );
+};
+
+export const Footer = () => {
+  return (
+    <section id="footer" className="mt-6 border-t-[1px] border-t-darkGrey">
+      <div className="mt-2">
+        <div className="grid grid-cols-2">
+          <div className="grid grid-rows-2 ml-2 gap-y-2">
+            <div className="flex flex-col gap-y-2">
+              <a href="/about-us">About</a>
+              <a href="/info">More Info</a>
+            </div>
+            <div>
+              <Hero_Button
+                text_feild="Contact Us"
+                styles="bg-mainDark text-mainContrast border border-mainContrast hover:bg-darkGrey"
+              />
+            </div>
+          </div>
+          <div>Address</div>
+        </div>
+      </div>
+    </section>
   );
 };

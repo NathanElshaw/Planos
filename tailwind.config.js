@@ -20,6 +20,7 @@ module.exports = {
       mainContrast: `#C4FE76`,
       fadeContrast: `#9EEA6C`,
       darkGrey: "#333333",
+      errorRed: `#CC0000`,
     },
   },
   plugins: [],

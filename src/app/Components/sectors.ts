@@ -1,0 +1,18 @@
+export const sectors = [
+  "Agriculture",
+  "Construction",
+  "Education",
+  "Financial Services",
+  "Healthcare",
+  "Logistics",
+  "Manufacturing",
+  "Mining",
+  "Public Services",
+  "Real Estate",
+  "Technology",
+  "Transportation",
+  "Utilities",
+  "Waste Management Services",
+  "Wholesale Trade",
+  "Other",
+];

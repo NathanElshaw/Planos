@@ -61,6 +61,7 @@ export default function Verify() {
                   type="text"
                   id="verify-code"
                   className="bg-mainDark"
+                  placeholder="Code"
                 />
               </label>
               <div className="flex mt-2">

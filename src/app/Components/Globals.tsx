@@ -55,10 +55,12 @@ export const Navbar = () => {
                 <a href="/about-us">About</a>
                 <a href="/info">More Info</a>
                 <div>
-                  <Hero_Button
-                    text_feild="Sign Up!"
-                    styles="bg-mainDark text-mainContrast border border-mainContrast hover:bg-darkGrey"
-                  />
+                  <a href="/sign-up">
+                    <Hero_Button
+                      text_feild="Sign Up!"
+                      styles="bg-mainDark text-mainContrast border border-mainContrast hover:bg-darkGrey"
+                    />
+                  </a>
                 </div>
               </div>
             </div>

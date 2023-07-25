@@ -10,6 +10,7 @@ export const sectors = [
   "Public Services",
   "Real Estate",
   "Technology",
+  "Trade Services",
   "Transportation",
   "Utilities",
   "Waste Management Services",

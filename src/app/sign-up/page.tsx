@@ -16,10 +16,26 @@ const Contact_Schema = z.object({
   email: z.string({ required_error: "Email is required" }).email(),
   phone: z
     .string({ required_error: "Phone is required" })
-    .min(10, "Phone number is too short!")
-    .max(10, "Phone number is too long"),
+    .min(13, "Phone number is too short!")
+    .max(13, "Phone number is too long"),
   receive_Updates: z.boolean(),
 });
+
+const Login_Schema = z
+  .object({
+    username: z.string().min(6, "Username is too short"),
+    password: z.string().min(6, "Password is too short"),
+    confirm_Password: z.string().min(6, "Password is too short"),
+  })
+  .superRefine(({ confirm_Password, password }, _ctx) => {
+    if (confirm_Password !== password) {
+      _ctx.addIssue({
+        path: ["password"],
+        code: "custom",
+        message: "Passwords do not match",
+      });
+    }
+  });
 
 const Company_Schema = z.object({
   company_Name: z.string(),
@@ -35,13 +51,14 @@ const Addition_Info_Schema = z.object({
 
 type Name_Type = z.infer<typeof Name_Schema>;
 type Contact_Type = z.infer<typeof Contact_Schema>;
+type Login_Type = z.infer<typeof Login_Schema>;
 type Company_Type = z.infer<typeof Company_Schema>;
 type Addition_Info_Type = z.infer<typeof Addition_Info_Schema>;
 
 export default function SignUp() {
   const [form_Step, set_Form_Step] = React.useState<number>(0);
   const [text_Input_Sector, set_Input_Sector] = React.useState<boolean>(false);
-  const [full_Form, set_Full_Form] = React.useState<{}>({});
+  const [full_Form, set_Full_Form] = React.useState<any>({});
 
   const {
     register: register_Name,
@@ -57,6 +74,14 @@ export default function SignUp() {
     formState: { errors: Contact_Errors },
   } = useForm<Contact_Type>({
     resolver: zodResolver(Contact_Schema),
+  });
+
+  const {
+    register: register_Login,
+    handleSubmit: handle_Login_Submit,
+    formState: { errors: Login_Erros },
+  } = useForm<Login_Type>({
+    resolver: zodResolver(Login_Schema),
   });
 
   const {
@@ -92,12 +117,22 @@ export default function SignUp() {
     Object.assign(full_Form, data);
     set_Form_Step(form_Step + 1);
   };
+
+  const Submit_Login: SubmitHandler<Login_Type> = async (
+    data: Login_Type,
+    e: React.BaseSyntheticEvent<object, any, any> | undefined
+  ) => {
+    e?.preventDefault();
+    Object.assign(full_Form, data);
+    set_Form_Step(form_Step + 1);
+  };
+
   const Submit_Form_Company_Info: SubmitHandler<Company_Type> = async (
     data: Company_Type,
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
     e?.preventDefault();
-    Object.assign(full_Form, data);
+    Object.assign(full_Form, { company_Info: data });
     set_Form_Step(form_Step + 1);
   };
 
@@ -107,10 +142,11 @@ export default function SignUp() {
   ) => {
     console.log(full_Form);
     e?.preventDefault();
-    Object.assign(full_Form, data);
-    window.location.replace("/Verify");
+    Object.assign(full_Form, { input: data });
+    window.location.replace(`/verify?email=${full_Form.email}`);
   };
 
+  console.log(full_Form);
   text_Input_Sector === true ? set_Company_Value("company_Sector", "") : "";
 
   return (
@@ -124,6 +160,8 @@ export default function SignUp() {
               : form_Step === 1
               ? `How can we contact you?`
               : form_Step === 2
+              ? "Lets make an account"
+              : form_Step === 3
               ? `Tell us about your company!`
               : `Addition Info`}
           </h2>
@@ -218,7 +256,7 @@ export default function SignUp() {
                         id="phone"
                         className="bg-mainDark"
                         autoComplete="telephone"
-                        placeholder="Phone"
+                        placeholder="(XXX)XXX-XXXX"
                       />
                     </label>
                   </div>
@@ -240,7 +278,7 @@ export default function SignUp() {
                         id="email"
                         className="bg-mainDark"
                         autoComplete="email address"
-                        placeholder="Email"
+                        placeholder="Example@example.com"
                       />
                     </label>
                   </div>
@@ -267,6 +305,96 @@ export default function SignUp() {
               </div>
             </form>
           ) : form_Step === 2 ? (
+            <form
+              className="min-w-[50%] mt-4"
+              onSubmit={handle_Login_Submit(Submit_Login)}
+            >
+              <div>
+                <div>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      set_Form_Step(form_Step - 1);
+                    }}
+                  >
+                    Back
+                  </button>
+                </div>
+                <div>
+                  <label
+                    htmlFor="username"
+                    className={`bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey rounded-tr-md rounded-tl-md w-[100%] ${
+                      Login_Erros.username ? "border-errorRed" : ""
+                    }`}
+                  >
+                    <div className="flex justify-between">
+                      <span className="text-xs">Username:</span>
+                      <span className="text-xs text-errorRed">
+                        {Login_Erros.username?.message}
+                      </span>
+                    </div>
+                    <input
+                      {...register_Login("username")}
+                      type="text"
+                      id="username"
+                      className="bg-mainDark"
+                      placeholder="Username"
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label
+                    htmlFor="password"
+                    className={`bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey w-[100%] ${
+                      Login_Erros.password ? "border-errorRed" : ""
+                    }`}
+                  >
+                    <div className="flex justify-between">
+                      <span className="text-xs">Password:</span>
+                      <span className="text-xs text-errorRed">
+                        {Login_Erros.password?.message}
+                      </span>
+                    </div>
+                    <input
+                      {...register_Login("password")}
+                      type="password"
+                      id="password"
+                      className="bg-mainDark"
+                      placeholder="Password"
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label
+                    htmlFor="confirm-password"
+                    className={`bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey border-br-md border-bl-md w-[100%] ${
+                      Login_Erros.confirm_Password ||
+                      Login_Erros.password?.message === "Passwords do not match"
+                        ? "border-errorRed"
+                        : ""
+                    }`}
+                  >
+                    <div className="flex justify-between">
+                      <span className="text-xs">Confirm password:</span>
+                      <span className="text-xs text-errorRed">
+                        {Login_Erros.confirm_Password?.message}
+                      </span>
+                    </div>
+                    <input
+                      {...register_Login("confirm_Password")}
+                      type="password"
+                      id="confirm-password"
+                      className="bg-mainDark"
+                      placeholder="Confirm password"
+                    />
+                  </label>
+                </div>
+                <div className="flex mt-3">
+                  <Hero_Button text_feild="Continue" styles="w-[100%]" />
+                </div>
+              </div>
+            </form>
+          ) : form_Step === 3 ? (
             <form
               className="min-w-[33%] mt-4"
               onSubmit={handle_Company_Submit(Submit_Form_Company_Info)}
@@ -438,7 +566,7 @@ export default function SignUp() {
                 </div>
               </div>
             </form>
-          ) : form_Step === 3 ? (
+          ) : form_Step === 4 ? (
             <form
               className="min-w-[33%] mt-4"
               onSubmit={handle_Addition_Info_Submit(Submit_Form_Addition_Info)}

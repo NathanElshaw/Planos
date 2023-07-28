@@ -85,7 +85,7 @@ export const Hero_Button: NextPage<Hero_Button_Props> = (props) => {
 export const Footer = () => {
   return (
     <section id="footer" className="mt-6 border-t-[1px] border-t-darkGrey">
-      <div className="mt-2">
+      <div className="mt-6">
         <div className="grid grid-cols-2">
           <div className="grid grid-rows-2 ml-2 gap-y-2">
             <div className="flex flex-col gap-y-2">
@@ -101,6 +101,9 @@ export const Footer = () => {
           </div>
           <div>Address</div>
         </div>
+      </div>
+      <div className="flex justify-center my-2">
+        <p className="text-xs text-mainWhite">Planos &copy; 2021-2023</p>
       </div>
     </section>
   );

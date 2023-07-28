@@ -70,17 +70,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section>
-        <div id="about" className="flex justify-center my-2 mx-2">
-          <h2 className="text-3xl">About</h2>
-        </div>
-        <p className="text-center mx-2">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio
-          aliquid alias voluptatem, similique earum fuga neque dolores vero vel
-          nisi. Modi, quaerat consequatur qui perspiciatis corporis odit
-          voluptate molestias dolorum!
-        </p>
-      </section>
       <Footer />
     </main>
   );

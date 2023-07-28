@@ -1,4 +1,4 @@
-import { Navbar } from "../Components/Globals";
+import { Footer, Navbar } from "../Components/Globals";
 
 export default function About() {
   return (
@@ -9,8 +9,11 @@ export default function About() {
           <h1 className="text-3xl font-semibold text-mainContrast">About</h1>
         </div>
       </section>
-      <section id="about-us-main-content" className="flex flex-col">
-        <div className="ml-2  mt-6">
+      <section
+        id="about-us-main-content"
+        className="flex justify-center flex-col mx-4 my-10"
+      >
+        <div className="text-center  mt-62">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
             accusamus quaerat pariatur quisquam suscipit veniam officiis vel,
@@ -18,7 +21,7 @@ export default function About() {
             Minima optio suscipit facere?
           </p>
         </div>
-        <div className="text-right ml-2 mt-6">
+        <div className="text-center mt-6">
           <p className="">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
             accusamus quaerat pariatur quisquam suscipit veniam officiis vel,
@@ -26,7 +29,7 @@ export default function About() {
             Minima optio suscipit facere?
           </p>
         </div>
-        <div className="ml-2  mt-6">
+        <div className="text-center  mt-6">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
             accusamus quaerat pariatur quisquam suscipit veniam officiis vel,
@@ -35,6 +38,7 @@ export default function About() {
           </p>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

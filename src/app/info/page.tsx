@@ -1,4 +1,4 @@
-import { Navbar } from "../Components/Globals";
+import { Footer, Navbar } from "../Components/Globals";
 import Image from "next/image";
 import collaboration from "../../../public/assets/collaboration.svg";
 import {
@@ -96,6 +96,7 @@ export default function Info() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

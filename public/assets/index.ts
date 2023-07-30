@@ -7,6 +7,7 @@ import exchange from "./exchange.svg";
 import inspection from "./inspection.svg";
 import schedule from "./schedule.svg";
 import total_sales from "./total-sales.svg";
+import Iphone from "./Iphone.svg";
 
 export {
   accounting,
@@ -18,4 +19,5 @@ export {
   inspection,
   schedule,
   total_sales,
+  Iphone,
 };

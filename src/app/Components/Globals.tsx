@@ -29,7 +29,15 @@ export const Navbar = () => {
                 <a href="/info">More Info</a>
               </li>
               <li>
-                <Hero_Button text_feild="Sign Up!" />
+                <a href="/use-cases">Use Cases</a>
+              </li>
+              <li>
+                <a href="/sign-up">
+                  <Hero_Button
+                    text_feild="Sign Up!"
+                    styles="bg-mainDark text-mainContrast border border-mainContrast hover:bg-darkGrey hover:text-mainDark"
+                  />
+                </a>
               </li>
             </ol>
             <div className="flex justify-center items-center max-h-[40px] md:hidden">
@@ -54,6 +62,7 @@ export const Navbar = () => {
               <div className="flex flex-col text-xl gap-y-3">
                 <a href="/about-us">About</a>
                 <a href="/info">More Info</a>
+                <a href="/use-cases">Use Cases</a>
                 <div>
                   <a href="/sign-up">
                     <Hero_Button
@@ -84,22 +93,24 @@ export const Hero_Button: NextPage<Hero_Button_Props> = (props) => {
 
 export const Footer = () => {
   return (
-    <section id="footer" className="mt-6 border-t-[1px] border-t-darkGrey">
-      <div className="mt-6">
+    <section id="footer" className="mt-6 border-t-[1px] border-t-darkGrey z-10">
+      <div className="mt-6 z-10">
         <div className="grid grid-cols-2">
           <div className="grid grid-rows-2 ml-2 gap-y-2">
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-2 z-[1]">
               <a href="/about-us">About</a>
               <a href="/info">More Info</a>
             </div>
-            <div>
-              <Hero_Button
-                text_feild="Contact Us"
-                styles="bg-mainDark text-mainContrast border border-mainContrast hover:bg-darkGrey"
-              />
+            <div className="z-[1]">
+              <a href="/contact-us">
+                <Hero_Button
+                  text_feild="Contact Us"
+                  styles="bg-mainDark text-mainContrast border border-mainContrast hover:text-mainDark"
+                />
+              </a>
             </div>
           </div>
-          <div>Address</div>
+          <div className="z-[1]">Address</div>
         </div>
       </div>
       <div className="flex justify-center my-2">

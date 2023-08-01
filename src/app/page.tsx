@@ -25,41 +25,54 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-row-reverse mr-5 mt-5">
-          <a href="/sign-up">
+          <a href="/sign-up" className="z-[1]">
             <Hero_Button text_feild="Sign Up Now!" />
           </a>
         </div>
         <motion.div
           className="z-[-1] min-h-full"
-          animate={{
-            opacity: image_Loaded === true ? 1 : 0,
-            transition: { ease: "linear" },
+          initial="initialState"
+          animate="animatedState"
+          transition={{
+            duration: 0.75,
+          }}
+          variants={{
+            initialState: { opacity: 0 },
+            animatedState: { opacity: 1, y: -50 },
           }}
         >
           <Image
             src={Iphone}
             alt="iphone"
-            className="absolute z-[-1] right-[0%] top-[40%]"
+            className="absolute z-[-1]"
             onLoad={(event) => {
               const target: any = event.target;
               if (target.src.indexOf("data:image/gif;base64") < 0) {
-                setTimeout(() => {
-                  set_Image_Loaded(!image_Loaded);
-                }, 1000);
+                set_Image_Loaded(!image_Loaded);
               }
             }}
           />
         </motion.div>
         <div className="h-[350px]" />
       </section>
-      <section>
-        <div id="info">
+      <section className="mx-2 text-base">
+        <div
+          id="info-title"
+          className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite"
+        >
+          <h2 className="text-3xl">
+            Why use{" "}
+            <span className="font-semibold text-mainContrast">Planos</span>
+          </h2>
+        </div>
+        <div id="info" className="mt-4">
           <div className="flex justify-center my-2 mx-2">
             <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
               <Image priority src={schedule} alt="Collaboration" />
             </div>
           </div>
           <div className="text-center mx-2">
+            <span className="font-semibold text-lg">Scheduling: </span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
             corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,
@@ -73,6 +86,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center mx-2">
+            <span className="font-semibold text-lg">Collaboration: </span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
             corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,
@@ -86,6 +100,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center mx-2">
+            <span className="font-semibold text-lg">Tracked invoicing: </span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
             corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,

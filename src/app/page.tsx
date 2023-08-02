@@ -45,6 +45,7 @@ export default function Home() {
             src={Iphone}
             alt="iphone"
             className="absolute z-[-1]"
+            priority={true}
             onLoad={(event) => {
               const target: any = event.target;
               if (target.src.indexOf("data:image/gif;base64") < 0) {

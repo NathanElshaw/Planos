@@ -100,7 +100,9 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center mx-2">
-            <span className="font-semibold text-lg">Tracked invoicing: </span>
+            <span className="font-semibold text-lg">
+              Invoice and Job Payroll management:{" "}
+            </span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
             corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,
@@ -111,7 +113,7 @@ export default function Home() {
           <a href="/info">
             <Hero_Button
               text_feild="Learn more"
-              styles="text-mainContrast bg-mainDark border border-mainContrast"
+              styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
             />
           </a>
         </div>

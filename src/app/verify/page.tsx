@@ -40,7 +40,9 @@ export default function Verify() {
               <h2 className="text-bold text-2xl">Confirm your email!</h2>
             </div>
             <div className="text-center">
-              <p>We've sent you a conformation email at {email}</p>
+              <p>
+                We{"'"}ve sent you a conformation email at {email}
+              </p>
             </div>
             <form
               className="mx-auto mt-4 w-[80%]"

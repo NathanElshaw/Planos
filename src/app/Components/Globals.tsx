@@ -8,6 +8,12 @@ interface Hero_Button_Props {
   text_feild: string;
   styles?: string;
 }
+
+interface Thank_You_Props {
+  name: string;
+  message: string;
+}
+
 //Global Components
 export const Navbar = () => {
   const [dropdown_Toggled, set_dropdown_Toggle] =
@@ -115,6 +121,27 @@ export const Footer = () => {
       </div>
       <div className="flex justify-center my-2">
         <p className="text-xs text-mainWhite">Planos &copy; 2021-2023</p>
+      </div>
+    </section>
+  );
+};
+
+export const Thank_You_Page: NextPage<Thank_You_Props> = (props) => {
+  const { name, message } = props;
+  return (
+    <section id="contact-thank-you">
+      <div className="flex h-[85vh] w-[100vw]">
+        <div className="flex flex-col gap-y-2 mx-auto my-auto text-center">
+          <div className="flex">
+            <h2 className="text-2xl font-semibold">Thank You {name}!</h2>
+          </div>
+          <p>{message}</p>
+          <div>
+            <a href="/">
+              <Hero_Button text_feild="Return home" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

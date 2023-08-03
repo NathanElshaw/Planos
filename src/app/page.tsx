@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="flex flex-row-reverse mr-5 mt-5">
           <a href="/sign-up" className="z-[1]">
-            <Hero_Button text_feild="Sign Up Now!" />
+            <Hero_Button text_feild="Sign Up for Beta!" />
           </a>
         </div>
         <motion.div
@@ -74,10 +74,12 @@ export default function Home() {
           </div>
           <div className="text-center mx-2">
             <span className="font-semibold text-lg">Scheduling: </span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
-            corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,
-            quis dignissimos beatae est ipsum!
+            <p>
+              Our app empowers efficient project management. Real-time updates,
+              prioritized tasks, and BIM integration ensure seamless execution.
+              Stay ahead with instant notifications. Elevate your projects with
+              smart scheduling
+            </p>
           </div>
         </div>
         <div>
@@ -88,10 +90,13 @@ export default function Home() {
           </div>
           <div className="text-center mx-2">
             <span className="font-semibold text-lg">Collaboration: </span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
-            corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,
-            quis dignissimos beatae est ipsum!
+            <p>
+              Embrace our app for seamless collaboration and peak productivity.
+              Real-time messaging, project management, and document sharing keep
+              teams connected. BIM integration ensures data synchronization.
+              Stay ahead with instant updates. Experience the future of project
+              management!
+            </p>
           </div>
         </div>
         <div>
@@ -104,10 +109,11 @@ export default function Home() {
             <span className="font-semibold text-lg">
               Invoice and Job Payroll management:{" "}
             </span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            doloribus atque fuga! Iusto asperiores nesciunt perspiciatis
-            corrupti ab architecto cum libero aspernatur deserunt! Quasi eum,
-            quis dignissimos beatae est ipsum!
+            <p>
+              Our app simplifies invoice and payroll management. Real-time
+              tracking, automation, and precise control ensure efficiency. Take
+              charge of your projects with ease!
+            </p>
           </div>
         </div>
         <div className="flex flex-row-reverse mr-4 mt-3">

@@ -77,7 +77,7 @@ export default function Info() {
             <div className="text-center mx-2">
               <span className="font-semibold text-lg">Customer Relations</span>
               <p>
-                Elevate your construction experience with our app's seamless
+                Elevate your construction experience with our app{"'"}s seamless
                 communication platform. Stay connected with customers in
                 real-time, ensuring clarity and transparency throughout the
                 project. Share progress updates, address concerns, and receive

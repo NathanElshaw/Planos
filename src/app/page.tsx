@@ -1,5 +1,4 @@
 "use client";
-
 import { Footer, Hero_Button, Navbar } from "./Components/Globals";
 import Image from "next/image";
 import collaboration from "../../public/assets/collaboration.svg";
@@ -15,7 +14,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
-      <section className="mt-2 mx-2" id="main_hero">
+      <section className="mt-2 mx-2 md:mx-20" id="main_hero">
         <div className="grid grid-cols-4 mr-5 text-5xl">
           <div className="col-span-3 ml-2">
             <span className="text-mainContrast font-extrabold">
@@ -30,7 +29,7 @@ export default function Home() {
           </a>
         </div>
         <motion.div
-          className="z-[-1] min-h-full"
+          className="z-[-1] min-h-full "
           initial="initialState"
           animate="animatedState"
           transition={{
@@ -44,7 +43,7 @@ export default function Home() {
           <Image
             src={Iphone}
             alt="iphone"
-            className="absolute z-[-1]"
+            className="absolute z-[-1] md:max-h-[350px] md:right-[50px]"
             priority={true}
             onLoad={(event) => {
               const target: any = event.target;
@@ -72,7 +71,7 @@ export default function Home() {
               <Image priority src={schedule} alt="Collaboration" />
             </div>
           </div>
-          <div className="text-center mx-2">
+          <div className="text-center mx-2 md:mx-40">
             <span className="font-semibold text-lg">Scheduling: </span>
             <p>
               Our app empowers efficient project management. Real-time updates,
@@ -82,47 +81,49 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div>
-          <div className="flex justify-center my-2 mx-2">
-            <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
-              <Image priority src={collaboration} alt="Collaboration" />
+        <div className="flex flex-col gap-y-2">
+          <div>
+            <div className="flex justify-center my-2 mx-2">
+              <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                <Image priority src={collaboration} alt="Collaboration" />
+              </div>
+            </div>
+            <div className="text-center mx-2 md:mx-40">
+              <span className="font-semibold text-lg">Collaboration: </span>
+              <p>
+                Embrace our app for seamless collaboration and peak
+                productivity. Real-time messaging, project management, and
+                document sharing keep teams connected. BIM integration ensures
+                data synchronization. Stay ahead with instant updates.
+                Experience the future of project management!
+              </p>
             </div>
           </div>
-          <div className="text-center mx-2">
-            <span className="font-semibold text-lg">Collaboration: </span>
-            <p>
-              Embrace our app for seamless collaboration and peak productivity.
-              Real-time messaging, project management, and document sharing keep
-              teams connected. BIM integration ensures data synchronization.
-              Stay ahead with instant updates. Experience the future of project
-              management!
-            </p>
-          </div>
-        </div>
-        <div>
-          <div className="flex justify-center my-2 mx-2">
-            <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
-              <Image priority src={estimates} alt="Collaboration" />
+          <div>
+            <div className="flex justify-center my-2 mx-2">
+              <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                <Image priority src={estimates} alt="Collaboration" />
+              </div>
+            </div>
+            <div className="text-center mx-2 md:mx-40">
+              <span className="font-semibold text-lg">
+                Invoice and Job Payroll management:{" "}
+              </span>
+              <p>
+                Our app simplifies invoice and payroll management. Real-time
+                tracking, automation, and precise control ensure efficiency.
+                Take charge of your projects with ease!
+              </p>
             </div>
           </div>
-          <div className="text-center mx-2">
-            <span className="font-semibold text-lg">
-              Invoice and Job Payroll management:{" "}
-            </span>
-            <p>
-              Our app simplifies invoice and payroll management. Real-time
-              tracking, automation, and precise control ensure efficiency. Take
-              charge of your projects with ease!
-            </p>
+          <div className="flex flex-row-reverse mr-4 mt-3">
+            <a href="/info">
+              <Hero_Button
+                text_feild="Learn more"
+                styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
+              />
+            </a>
           </div>
-        </div>
-        <div className="flex flex-row-reverse mr-4 mt-3">
-          <a href="/info">
-            <Hero_Button
-              text_feild="Learn more"
-              styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
-            />
-          </a>
         </div>
       </section>
       <Footer />

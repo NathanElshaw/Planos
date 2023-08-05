@@ -27,7 +27,7 @@ export const Navbar = () => {
             <a href="/">img</a>
           </div>
           <div className="flex">
-            <ol className="hidden md:flex justify-between items-center gap-x-6">
+            <ol className="hidden lg:flex justify-between items-center gap-x-6">
               <li>
                 <a href="/about-us">About</a>
               </li>
@@ -46,7 +46,7 @@ export const Navbar = () => {
                 </a>
               </li>
             </ol>
-            <div className="flex justify-center items-center max-h-[40px] md:hidden">
+            <div className="flex justify-center items-center max-h-[40px] lg:hidden">
               <Hamburger
                 toggled={dropdown_Toggled}
                 toggle={() => {

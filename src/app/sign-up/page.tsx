@@ -16,8 +16,8 @@ const Contact_Schema = z.object({
   email: z.string({ required_error: "Email is required" }).email(),
   phone: z
     .string({ required_error: "Phone is required" })
-    .min(13, "Phone number is too short!")
-    .max(13, "Phone number is too long"),
+    .min(14, "Phone number is too short!")
+    .max(14, "Phone number is too long"),
   receive_Updates: z.boolean(),
 });
 
@@ -140,13 +140,10 @@ export default function SignUp() {
     data: Addition_Info_Type,
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
-    console.log(full_Form);
     e?.preventDefault();
     Object.assign(full_Form, { input: data });
     window.location.replace(`/verify?email=${full_Form.email}`);
   };
-
-  console.log(full_Form);
   text_Input_Sector === true ? set_Company_Value("company_Sector", "") : "";
 
   return (
@@ -252,11 +249,34 @@ export default function SignUp() {
                       </div>
                       <input
                         {...register_Contact("phone")}
-                        type="text"
+                        type="tel"
                         id="phone"
                         className="bg-mainDark"
                         autoComplete="telephone"
                         placeholder="(XXX)XXX-XXXX"
+                        maxLength={14}
+                        onKeyDown={(e: any) => {
+                          const input = e.target.value;
+                          if (e.code === "Backspace") {
+                            if (input.length === 7) {
+                              e.target.value = input.substr(0, 5);
+                            }
+                            if (input.length === 11) {
+                              e.target.value = input.substr(0, 10);
+                            }
+                          } else if (e.code.substr(0, 5) !== "Digit") {
+                            e.preventDefault();
+                          } else if (
+                            input.length == 1 &&
+                            input.charAt(0) != "("
+                          ) {
+                            e.target.value = "(" + input;
+                          } else if (input.length === 4) {
+                            e.target.value = input + ") ";
+                          } else if (input.length === 9) {
+                            e.target.value = input + "-";
+                          }
+                        }}
                       />
                     </label>
                   </div>

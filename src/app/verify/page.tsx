@@ -4,12 +4,13 @@ import { Hero_Button, Navbar } from "../Components/Globals";
 import { useSearchParams } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
+import { url } from "../Components/url";
 
 const Confirm_Schema = z.object({
   code: z
     .string({ required_error: "A code is required" })
-    .min(8, "Code is too short")
-    .max(8, "Code is too long"),
+    .min(7, "Code is too short")
+    .max(7, "Code is too long"),
 });
 
 type Confirm_Type = z.infer<typeof Confirm_Schema>;
@@ -22,13 +23,22 @@ export default function Verify() {
   const {
     register,
     handleSubmit,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm<Confirm_Type>({
     resolver: zodResolver(Confirm_Schema),
   });
   const onSubmit: SubmitHandler<Confirm_Type> = async (data, e) => {
     e?.preventDefault();
-    console.log(data);
+    const check_Code = await fetch(
+      `${url}/api/verify_code/?email=${email}&code=${data.code}`,
+      {
+        method: "GET",
+      }
+    );
+    const return_Check = await check_Code.json();
+    if (return_Check.error) setError("code", { message: return_Check.error });
   };
   return (
     <main>
@@ -50,7 +60,9 @@ export default function Verify() {
             >
               <label
                 htmlFor="verify-code"
-                className="bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey rounded-md w-[100%]"
+                className={`bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey rounded-md w-[100%] ${
+                  errors.code?.message ? "border-errorRed" : ""
+                }`}
               >
                 <div className="flex justify-between">
                   <span className="text-xs">Conformation code:</span>
@@ -64,6 +76,11 @@ export default function Verify() {
                   id="verify-code"
                   className="bg-mainDark"
                   placeholder="Code"
+                  maxLength={7}
+                  size={7}
+                  onChange={() => {
+                    clearErrors("code");
+                  }}
                 />
               </label>
               <div className="flex mt-2">

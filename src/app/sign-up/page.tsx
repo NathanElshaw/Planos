@@ -6,6 +6,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import React from "react";
 import { states } from "../Components/states";
 import { sectors } from "../Components/sectors";
+import { url } from "../Components/url";
 
 const Name_Schema = z.object({
   first_Name: z.string().min(2, "First name is required!"),
@@ -40,7 +41,7 @@ const Login_Schema = z
 const Company_Schema = z.object({
   company_Name: z.string(),
   company_Sector: z.string(),
-  postition: z.string(),
+  position: z.string(),
   company_Location: z.string(),
   company_Size: z.string(),
 });
@@ -71,6 +72,8 @@ export default function SignUp() {
   const {
     register: register_Contact,
     handleSubmit: handle_Contact_Submit,
+    setError: set_Error_Contact,
+    clearErrors: clear_Error_Contact,
     formState: { errors: Contact_Errors },
   } = useForm<Contact_Type>({
     resolver: zodResolver(Contact_Schema),
@@ -78,6 +81,8 @@ export default function SignUp() {
 
   const {
     register: register_Login,
+    setError: set_Error_Login,
+    clearErrors: clear_Error_Login,
     handleSubmit: handle_Login_Submit,
     formState: { errors: Login_Erros },
   } = useForm<Login_Type>({
@@ -106,7 +111,7 @@ export default function SignUp() {
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
     e?.preventDefault();
-    Object.assign(full_Form, data);
+    Object.assign(full_Form, { name: data.first_Name + " " + data.last_Name });
     set_Form_Step(form_Step + 1);
   };
   const Submit_Form_Contact: SubmitHandler<Contact_Type> = async (
@@ -114,8 +119,16 @@ export default function SignUp() {
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
     e?.preventDefault();
-    Object.assign(full_Form, data);
-    set_Form_Step(form_Step + 1);
+    const Email_Check = await fetch(`${url}/api/check/?email=${data.email}`, {
+      method: "GET",
+    });
+    const return_Data = await Email_Check.json();
+    if (return_Data.error)
+      set_Error_Contact("email", { message: return_Data.error });
+    else {
+      Object.assign(full_Form, data);
+      set_Form_Step(form_Step + 1);
+    }
   };
 
   const Submit_Login: SubmitHandler<Login_Type> = async (
@@ -123,8 +136,17 @@ export default function SignUp() {
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
     e?.preventDefault();
-    Object.assign(full_Form, data);
-    set_Form_Step(form_Step + 1);
+    const username_Check = await fetch(
+      `${url}/api/check/?username=${data.username}`,
+      { method: "GET" }
+    );
+    const return_Check = await username_Check.json();
+    if (return_Check.error)
+      set_Error_Login("username", { message: return_Check.error });
+    else {
+      Object.assign(full_Form, data);
+      set_Form_Step(form_Step + 1);
+    }
   };
 
   const Submit_Form_Company_Info: SubmitHandler<Company_Type> = async (
@@ -141,7 +163,14 @@ export default function SignUp() {
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
     e?.preventDefault();
-    Object.assign(full_Form, { input: data });
+    Object.assign(full_Form, data);
+    const submit_SignUp = await fetch(`${url}/api`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(full_Form),
+    });
     window.location.replace(`/verify?email=${full_Form.email}`);
   };
   text_Input_Sector === true ? set_Company_Value("company_Sector", "") : "";
@@ -255,27 +284,36 @@ export default function SignUp() {
                         autoComplete="telephone"
                         placeholder="(XXX)XXX-XXXX"
                         maxLength={14}
+                        onKeyUp={(e: any) => {
+                          const input = e.target.value;
+                          if (!e.code) {
+                            input.charAt(5) !== " "
+                              ? (e.target.value =
+                                  input.substr(0, 5) +
+                                  " " +
+                                  input.substr(5, 15))
+                              : "";
+                          }
+                        }}
                         onKeyDown={(e: any) => {
                           const input = e.target.value;
-                          if (e.code === "Backspace") {
-                            if (input.length === 7) {
-                              e.target.value = input.substr(0, 5);
-                            }
-                            if (input.length === 11) {
-                              e.target.value = input.substr(0, 10);
-                            }
-                          } else if (e.code.substr(0, 5) !== "Digit") {
-                            e.preventDefault();
-                          } else if (
-                            input.length == 1 &&
-                            input.charAt(0) != "("
-                          ) {
-                            e.target.value = "(" + input;
-                          } else if (input.length === 4) {
-                            e.target.value = input + ") ";
-                          } else if (input.length === 9) {
-                            e.target.value = input + "-";
-                          }
+                          if (!e.code) {
+                          } else
+                            e.code === "Backspace"
+                              ? input.length === 7
+                                ? (e.target.value = input.substr(0, 5))
+                                : input.length === 11
+                                ? (e.target.value = input.substr(0, 10))
+                                : ""
+                              : e.code.substr(0, 5) !== "Digit"
+                              ? e.preventDefault()
+                              : input.length == 1 && input.charAt(0) != "("
+                              ? (e.target.value = "(" + input)
+                              : input.length === 4
+                              ? (e.target.value = input + ") ")
+                              : input.length === 9
+                              ? (e.target.value = input + "-")
+                              : "";
                         }}
                       />
                     </label>
@@ -299,6 +337,9 @@ export default function SignUp() {
                         className="bg-mainDark"
                         autoComplete="email address"
                         placeholder="Example@example.com"
+                        onChange={() => {
+                          clear_Error_Contact("email");
+                        }}
                       />
                     </label>
                   </div>
@@ -537,11 +578,11 @@ export default function SignUp() {
                             Whats your position in the company?
                           </span>
                           <span className="text-xs text-errorRed">
-                            {Company_Errors.postition?.message}
+                            {Company_Errors.position?.message}
                           </span>
                         </div>
                         <input
-                          {...register_Company("postition")}
+                          {...register_Company("position")}
                           type="text"
                           id="company-position"
                           className="bg-mainDark"

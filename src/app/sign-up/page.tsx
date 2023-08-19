@@ -60,6 +60,7 @@ export default function SignUp() {
   const [form_Step, set_Form_Step] = React.useState<number>(0);
   const [text_Input_Sector, set_Input_Sector] = React.useState<boolean>(false);
   const [full_Form, set_Full_Form] = React.useState<any>({});
+  const [show_Password, set_Show_Password] = React.useState<boolean>(false);
 
   const {
     register: register_Name,
@@ -176,7 +177,7 @@ export default function SignUp() {
   text_Input_Sector === true ? set_Company_Value("company_Sector", "") : "";
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Navbar />
       <section id="sign-up-page" className="flex h-[68vh] w-[100%]">
         <div className="my-auto mx-auto">
@@ -416,13 +417,26 @@ export default function SignUp() {
                         {Login_Erros.password?.message}
                       </span>
                     </div>
-                    <input
-                      {...register_Login("password")}
-                      type="password"
-                      id="password"
-                      className="bg-mainDark"
-                      placeholder="Password"
-                    />
+                    <div className="grid grid-cols-5">
+                      <input
+                        {...register_Login("password")}
+                        type={show_Password === true ? "text" : "password"}
+                        id="password"
+                        className="bg-mainDark col-span-4"
+                        placeholder="Password"
+                      />
+                      <button
+                        className="text-xs flex"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          set_Show_Password(!show_Password);
+                        }}
+                      >
+                        {show_Password === true
+                          ? "Hide password"
+                          : "Show Password"}
+                      </button>
+                    </div>
                   </label>
                 </div>
                 <div>
@@ -449,6 +463,12 @@ export default function SignUp() {
                       placeholder="Confirm password"
                     />
                   </label>
+                </div>
+                <div>
+                  <p className="text-xs text-white mx-4">
+                    Password must be longer than 8 chatarters and contain 1
+                    special charater (!,?,#,$)
+                  </p>
                 </div>
                 <div className="flex mt-3">
                   <Hero_Button text_feild="Continue" styles="w-[100%]" />

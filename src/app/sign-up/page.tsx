@@ -465,7 +465,7 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div>
-                  <p className="text-xs text-white mx-4">
+                  <p className="text-xs text-lightGrey mx-4">
                     Password must be longer than 8 chatarters and contain 1
                     special charater (!,?,#,$)
                   </p>

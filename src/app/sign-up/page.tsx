@@ -25,8 +25,8 @@ const Contact_Schema = z.object({
 const Login_Schema = z
   .object({
     username: z.string().min(6, "Username is too short"),
-    password: z.string().min(6, "Password is too short"),
-    confirm_Password: z.string().min(6, "Password is too short"),
+    password: z.string().min(8, "Password is too short"),
+    confirm_Password: z.string().min(8, "Password is too short"),
   })
   .superRefine(({ confirm_Password, password }, _ctx) => {
     if (confirm_Password !== password) {
@@ -120,12 +120,20 @@ export default function SignUp() {
     e: React.BaseSyntheticEvent<object, any, any> | undefined
   ) => {
     e?.preventDefault();
+    const Phone_Check = await fetch(`${url}/api/check/?phone=${data.phone}`, {
+      method: "GET",
+    });
     const Email_Check = await fetch(`${url}/api/check/?email=${data.email}`, {
       method: "GET",
     });
-    const return_Data = await Email_Check.json();
-    if (return_Data.error)
-      set_Error_Contact("email", { message: return_Data.error });
+
+    const return_Data_Phone = await Phone_Check.json();
+    const return_Data_Email = await Email_Check.json();
+    if (return_Data_Phone) {
+      set_Error_Contact("phone", { message: return_Data_Phone.error });
+    }
+    if (return_Data_Email.error)
+      set_Error_Contact("email", { message: return_Data_Email.error });
     else {
       Object.assign(full_Form, data);
       set_Form_Step(form_Step + 1);
@@ -172,7 +180,7 @@ export default function SignUp() {
       },
       body: JSON.stringify(full_Form),
     });
-    window.location.replace(`/verify?email=${full_Form.email}`);
+    location.href = `/verify?email=${full_Form.email}`;
   };
   text_Input_Sector === true ? set_Company_Value("company_Sector", "") : "";
 
@@ -187,7 +195,7 @@ export default function SignUp() {
               : form_Step === 1
               ? `How can we contact you?`
               : form_Step === 2
-              ? "Lets make an account"
+              ? "Let's make an account"
               : form_Step === 3
               ? `Tell us about your company!`
               : `Addition Info`}
@@ -417,32 +425,40 @@ export default function SignUp() {
                         {Login_Erros.password?.message}
                       </span>
                     </div>
-                    <div className="grid grid-cols-5">
+                    <div className="flex">
                       <input
                         {...register_Login("password")}
                         type={show_Password === true ? "text" : "password"}
                         id="password"
-                        className="bg-mainDark col-span-4"
+                        className="bg-mainDark"
                         placeholder="Password"
-                      />
-                      <button
-                        className="text-xs flex"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          set_Show_Password(!show_Password);
+                        autoComplete="new-password"
+                        onChange={() => {
+                          clear_Error_Login("password");
+                          clear_Error_Login("confirm_Password");
                         }}
-                      >
-                        {show_Password === true
-                          ? "Hide password"
-                          : "Show Password"}
-                      </button>
+                      />
+                      <div className="ml-auto content-center">
+                        <button
+                          tabIndex={-1}
+                          className="text-xs"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            set_Show_Password(!show_Password);
+                          }}
+                        >
+                          {show_Password === true
+                            ? "Hide password"
+                            : "Show Password"}
+                        </button>
+                      </div>
                     </div>
                   </label>
                 </div>
                 <div>
                   <label
                     htmlFor="confirm-password"
-                    className={`bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey border-br-md border-bl-md w-[100%] ${
+                    className={`bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey rounded-br-md rounded-bl-md w-[100%] ${
                       Login_Erros.confirm_Password ||
                       Login_Erros.password?.message === "Passwords do not match"
                         ? "border-errorRed"
@@ -461,16 +477,20 @@ export default function SignUp() {
                       id="confirm-password"
                       className="bg-mainDark"
                       placeholder="Confirm password"
+                      autoComplete="new-password"
+                      onChange={() => {
+                        clear_Error_Login("password");
+                        clear_Error_Login("confirm_Password");
+                      }}
                     />
                   </label>
                 </div>
                 <div>
-                  <p className="text-xs text-lightGrey mx-4">
-                    Password must be longer than 8 chatarters and contain 1
-                    special charater (!,?,#,$)
+                  <p className="text-xs text-lightGrey">
+                    Password must be longer than 8 chatarters.
                   </p>
                 </div>
-                <div className="flex mt-3">
+                <div className="flex mt-3 mx-8">
                   <Hero_Button text_feild="Continue" styles="w-[100%]" />
                 </div>
               </div>
@@ -593,7 +613,7 @@ export default function SignUp() {
                         htmlFor="company-position"
                         className="bg-mainDark text-xl flex flex-col border px-4 py-1 border-darkGrey rounded-br-md rounded-bl-md w-[100%]"
                       >
-                        <div>
+                        <div className="flex justify-between">
                           <span className="text-xs">
                             Whats your position in the company?
                           </span>

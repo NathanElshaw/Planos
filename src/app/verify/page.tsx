@@ -1,7 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Hero_Button, Navbar } from "../Components/Globals";
-import { useSearchParams } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { url } from "../Components/url";
@@ -17,7 +17,6 @@ type Confirm_Type = z.infer<typeof Confirm_Schema>;
 
 export default function Verify() {
   const url_Query = useSearchParams();
-
   const email = url_Query.get("email") || "";
 
   const {
@@ -39,6 +38,7 @@ export default function Verify() {
     );
     const return_Check = await check_Code.json();
     if (return_Check.error) setError("code", { message: return_Check.error });
+    if (return_Check === true) location.href = "/verify/thank-you";
   };
   return (
     <main>

@@ -20,8 +20,8 @@ export const Navbar = () => {
     React.useState<boolean>(false);
 
   return (
-    <section className="shadow-sm rounded-b-md shadow-darkGrey sticky">
-      <nav className="mx-2 min-h-[60px] max-h-[60px] flex flex-col justify-center">
+    <section className="shadow-sm rounded-b-md shadow-darkGrey">
+      <nav className="mx-2 min-h-[60px] max-h-[60px] flex flex-col justify-center sm:mx-10 lg:mx-40">
         <div className="flex justify-between">
           <div className="flex items-center">
             <a href="/">img</a>
@@ -99,7 +99,10 @@ export const Hero_Button: NextPage<Hero_Button_Props> = (props) => {
 
 export const Footer = () => {
   return (
-    <section id="footer" className="mt-6 border-t-[1px] border-t-darkGrey z-10">
+    <section
+      id="footer"
+      className="mt-6 border-t-[1px] border-t-darkGrey z-10 sm:mx-16 lg:mx-36"
+    >
       <div className="mt-6 z-10">
         <div className="grid grid-cols-2">
           <div className="grid grid-rows-2 ml-2 gap-y-2">

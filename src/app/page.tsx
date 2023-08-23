@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
-      <section className="mt-2 mx-2 md:mx-20" id="main_hero">
+      <section className="mt-2 mx-2 md:mx-20 lg:mx-60" id="main_hero">
         <div className="grid grid-cols-4 mr-5 text-5xl">
           <div className="col-span-3 ml-2">
             <span className="text-mainContrast font-extrabold">
@@ -23,7 +23,7 @@ export default function Home() {
             at your fingertips
           </div>
         </div>
-        <div className="flex flex-row-reverse mr-5 mt-5">
+        <div className="flex flex-row-reverse mr-5 mt-5 sm:hidden">
           <a href="/sign-up" className="z-[1]">
             <Hero_Button text_feild="Sign Up for Beta!" />
           </a>
@@ -43,7 +43,7 @@ export default function Home() {
           <Image
             src={Iphone}
             alt="iphone"
-            className="absolute z-[-1] md:max-h-[350px] md:right-[50px]"
+            className="absolute z-[-1] md:max-h-[350px] md:right-[50px] sm:top-[70px]"
             priority={true}
             onLoad={(event) => {
               const target: any = event.target;
@@ -54,8 +54,13 @@ export default function Home() {
           />
         </motion.div>
         <div className="h-[350px]" />
+        <div className="hidden flex-row-reverse mr-5 mt-5 sm:flex">
+          <a href="/sign-up" className="z-[1]">
+            <Hero_Button text_feild="Sign Up for Beta!" />
+          </a>
+        </div>
       </section>
-      <section className="mx-2 text-base">
+      <section className="mx-2 text-base lg:mx-60">
         <div
           id="info-title"
           className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite"

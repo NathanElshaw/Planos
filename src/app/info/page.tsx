@@ -13,11 +13,14 @@ export default function Info() {
   return (
     <main>
       <Navbar />
-      <section id="info" className="mx-6 overflow-x-hidden">
+      <section
+        id="info"
+        className="mx-6 overflow-x-hidden sm:mx-12 md:mx-28 lg:mx-60"
+      >
         <div className="mt-2">
           <h2 className="text-3xl">Info</h2>
         </div>
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-2 sm:mx-4 md:mx-8 lg:mx-10 lg:text-lg">
           <div>
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
@@ -25,7 +28,9 @@ export default function Info() {
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg">Scheduling: </span>
+              <span className="font-semibold text-lg sm:text-xl lg:text-2xl">
+                Scheduling:{" "}
+              </span>
               <p>
                 Our app empowers efficient project management. Real-time
                 updates, prioritized tasks, and BIM integration ensure seamless
@@ -41,7 +46,9 @@ export default function Info() {
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg">Collaboration: </span>
+              <span className="font-semibold text-lg md:text-xl lg:text-2xl">
+                Collaboration:{" "}
+              </span>
               <p>
                 Embrace our app for seamless collaboration and peak
                 productivity. Real-time messaging, project management, and
@@ -58,7 +65,7 @@ export default function Info() {
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg">
+              <span className="font-semibold text-lg sm:text-xl lg:text-2xl">
                 Invoice and Job Payroll management:{" "}
               </span>
               <p>
@@ -75,7 +82,9 @@ export default function Info() {
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg">Customer Relations</span>
+              <span className="font-semibold text-lg sm:text-xl lg:text-2xl">
+                Customer Relations
+              </span>
               <p>
                 Elevate your construction experience with our app{"'"}s seamless
                 communication platform. Stay connected with customers in
@@ -95,7 +104,7 @@ export default function Info() {
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg">
+              <span className="font-semibold text-lg sm:text-xl lg:text-2xl">
                 Continuous Checklists
               </span>
               <p>
@@ -113,7 +122,9 @@ export default function Info() {
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg">Seemless Payments</span>
+              <span className="font-semibold text-lg sm:text-xl lg:text-2xl">
+                Seemless Payments
+              </span>
               <p>
                 - Experience the magic of seamless payments with our app. Say
                 goodbye to payment headaches and project delays. Streamline

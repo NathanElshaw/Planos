@@ -5,10 +5,10 @@ export default function UseCases() {
     <main>
       <Navbar />
       <section id="use-cases-main">
-        <div className="my-4">
+        <div className="my-4 ml-6">
           <h1 className="font-semibold text-2xl">Use Cases</h1>
         </div>
-        <div className="mx-6">
+        <div className="mx-6 lg:mx-12">
           <div className="border border-darkGrey rounded-md px-4 py-2">
             <div className="my-4">
               <h2 className="font-semibold">Main use Case:</h2>
@@ -16,7 +16,7 @@ export default function UseCases() {
                 Construction
               </h3>
             </div>
-            <div>
+            <div className=" sm:mx-14 md:mx-28 lg:mx-60">
               <p className="mx-2 text-center">
                 Imagine a construction company facing communication gaps,
                 delays, and budget overruns. Enter the construction app, the

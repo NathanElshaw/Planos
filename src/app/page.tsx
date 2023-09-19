@@ -18,7 +18,7 @@ export default function Home() {
         <div className="grid grid-cols-4 mr-5 text-5xl">
           <div className="col-span-3 ml-2">
             <span className="text-mainContrast font-extrabold">
-              Project management <br />
+              Construction management <br />
             </span>
             at your fingertips
           </div>
@@ -43,7 +43,7 @@ export default function Home() {
           <Image
             src={Iphone}
             alt="iphone"
-            className="absolute z-[-1] md:max-h-[350px] md:right-[50px] sm:top-[70px]"
+            className="absolute z-[-1] max-h-[450px] sm:max-h-[400px] md:max-h-[375px] md:right-[50px] sm:top-[70px]"
             priority={true}
             onLoad={(event) => {
               const target: any = event.target;
@@ -53,7 +53,7 @@ export default function Home() {
             }}
           />
         </motion.div>
-        <div className="h-[350px]" />
+        <div className="h-[400px] sm:h-[350px]" />
         <div className="hidden flex-row-reverse mr-5 mt-5 sm:flex">
           <a href="/sign-up" className="z-[1]">
             <Hero_Button text_feild="Sign Up for Beta!" />
@@ -70,49 +70,54 @@ export default function Home() {
             <span className="font-semibold text-mainContrast">Planos</span>
           </h2>
         </div>
-        <div id="info" className="mt-4">
-          <div className="flex justify-center my-2 mx-2">
-            <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
-              <Image priority src={schedule} alt="Collaboration" />
-            </div>
-          </div>
-          <div className="text-center mx-2 md:mx-40">
-            <span className="font-semibold text-lg">Scheduling: </span>
-            <p>
-              Our app empowers efficient project management. Real-time updates,
-              prioritized tasks, and BIM integration ensure seamless execution.
-              Stay ahead with instant notifications. Elevate your projects with
-              smart scheduling
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-2">
+        <div
+          id="info"
+          className="mt-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-3"
+        >
           <div>
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
-                <Image priority src={collaboration} alt="Collaboration" />
+                <Image priority src={schedule} alt="Collaboration" />
               </div>
             </div>
-            <div className="text-center mx-2 md:mx-40">
-              <span className="font-semibold text-lg">Collaboration: </span>
+            <div className="text-center mx-2 sm:mx-40 md:mx-0">
+              <span className="font-semibold text-lg">Scheduling: </span>
               <p>
-                Embrace our app for seamless collaboration and peak
-                productivity. Real-time messaging, project management, and
-                document sharing keep teams connected. BIM integration ensures
-                data synchronization. Stay ahead with instant updates.
-                Experience the future of project management!
+                Our app empowers efficient project management. Real-time
+                updates, prioritized tasks, and BIM integration ensure seamless
+                execution. Stay ahead with instant notifications. Elevate your
+                projects with smart scheduling
               </p>
             </div>
           </div>
-          <div>
+          <div className="flex flex-col gap-y-2">
+            <div>
+              <div className="flex justify-center my-2 mx-2">
+                <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                  <Image priority src={collaboration} alt="Collaboration" />
+                </div>
+              </div>
+              <div className="text-center mx-2 sm:mx-40 md:mx-0">
+                <span className="font-semibold text-lg">Collaboration: </span>
+                <p>
+                  Embrace our app for seamless collaboration and peak
+                  productivity. Real-time messaging, project management, and
+                  document sharing keep teams connected. BIM integration ensures
+                  data synchronization. Stay ahead with instant updates.
+                  Experience the future of project management!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="md:col-span-2 ">
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
                 <Image priority src={estimates} alt="Collaboration" />
               </div>
             </div>
-            <div className="text-center mx-2 md:mx-40">
+            <div className="text-center mx-2 sm:mx-40 md:mx-0">
               <span className="font-semibold text-lg">
-                Invoice and Job Payroll management:{" "}
+                Invoice and Job Payroll management:
               </span>
               <p>
                 Our app simplifies invoice and payroll management. Real-time
@@ -121,14 +126,14 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-row-reverse mr-4 mt-3">
-            <a href="/info">
-              <Hero_Button
-                text_feild="Learn more"
-                styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
-              />
-            </a>
-          </div>
+        </div>
+        <div className="flex flex-row-reverse mr-4 mt-3">
+          <a href="/info">
+            <Hero_Button
+              text_feild="Learn more"
+              styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
+            />
+          </a>
         </div>
       </section>
       <Footer />

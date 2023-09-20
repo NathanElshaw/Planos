@@ -27,6 +27,8 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "react-hook-form": "^7.45.2"
+    "@types/react-vertical-timeline-component": "^3.3.3",
+    "react-hook-form": "^7.45.2",
+    "react-vertical-timeline-component": "^3.6.0"
   }
 }

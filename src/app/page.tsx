@@ -72,7 +72,7 @@ export default function Home() {
         </div>
         <div
           id="info"
-          className="mt-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-3"
+          className="mt-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 md:gap-x-3"
         >
           <div>
             <div className="flex justify-center my-2 mx-2">
@@ -80,7 +80,7 @@ export default function Home() {
                 <Image priority src={schedule} alt="Collaboration" />
               </div>
             </div>
-            <div className="text-center mx-2 sm:mx-40 md:mx-0">
+            <div className="text-center mx-2 md:mx-0">
               <span className="font-semibold text-lg">Scheduling: </span>
               <p>
                 Our app empowers efficient project management. Real-time
@@ -97,7 +97,7 @@ export default function Home() {
                   <Image priority src={collaboration} alt="Collaboration" />
                 </div>
               </div>
-              <div className="text-center mx-2 sm:mx-40 md:mx-0">
+              <div className="text-center mx-2 md:mx-0">
                 <span className="font-semibold text-lg">Collaboration: </span>
                 <p>
                   Embrace our app for seamless collaboration and peak
@@ -109,7 +109,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-2 ">
+          <div className="col-span-2 lg:col-span-1">
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
                 <Image priority src={estimates} alt="Collaboration" />

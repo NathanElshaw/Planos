@@ -35,9 +35,6 @@ export const Navbar = () => {
                 <a href="/info">More Info</a>
               </li>
               <li>
-                <a href="/use-cases">Use Cases</a>
-              </li>
-              <li>
                 <a href="/sign-up">
                   <Hero_Button
                     text_feild="Sign Up!"
@@ -68,7 +65,6 @@ export const Navbar = () => {
               <div className="flex flex-col text-xl gap-y-3">
                 <a href="/about-us">About</a>
                 <a href="/info">More Info</a>
-                <a href="/use-cases">Use Cases</a>
                 <div>
                   <a href="/sign-up">
                     <Hero_Button

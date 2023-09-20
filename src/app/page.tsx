@@ -7,6 +7,11 @@ import estimates from "../../public/assets/estimates.svg";
 import { Iphone } from "../../public/assets";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 export default function Home() {
   const [image_Loaded, set_Image_Loaded] = useState<boolean>(false);
@@ -60,7 +65,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section className="mx-2 text-base lg:mx-60">
+      <section id="quick-info" className="mx-2 text-base lg:mx-60">
         <div
           id="info-title"
           className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite"
@@ -135,6 +140,74 @@ export default function Home() {
             />
           </a>
         </div>
+      </section>
+      <section id="how-it-works" className="mx-2 text-base lg:mx-60">
+        <div className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite">
+          <h2 className="text-3xl">How it works</h2>
+        </div>
+        <div id="as-single-compnay">
+          <div className="flex justify-center mt-2 md:ml-2">
+            <h2 className="text-xl font-semibold">As a Single Company:</h2>
+          </div>
+          <div className="text-center my-2">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo
+              vitae laboriosam aliquid optio accusantium, eligendi nesciunt
+              soluta fugiat eos quidem consequatur impedit, tenetur itaque,
+              expedita id. Provident sint rerum beatae!
+            </p>
+          </div>
+        </div>
+        <div id="working-with-multiple-companies">
+          <div className="flex justify-center mt-2 md:ml-2">
+            <h2 className="text-xl font-semibold">With Multiple Companies:</h2>
+          </div>
+          <div className="text-center my-2">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. At beatae
+              eius deleniti optio, id similique dignissimos, blanditiis, aliquam
+              molestias exercitationem reprehenderit laudantium odit? Assumenda
+              eaque, consectetur expedita vitae veniam totam?
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-row-reverse">
+          <Hero_Button text_feild="Explore more" />
+        </div>
+      </section>
+      <section id="timeline" className="mx-2 mt-10 text-base lg:mx-60">
+        <div className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite">
+          <h2>Timeline projection</h2>
+        </div>
+        <VerticalTimeline>
+          <VerticalTimelineElement
+            contentStyle={{ background: "#272727", color: "#fff" }}
+            contentArrowStyle={{ borderRight: "7px solid rbg(33,150,250)" }}
+            date="End Q4 2023"
+            textClassName="text-mainWhite"
+          >
+            <h2 className="text-mainWhite">Title</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              hic amet possimus excepturi, voluptatem doloribus incidunt ab
+              officiis recusandae assumenda perspiciatis perferendis natus
+              quaerat a id similique nulla eaque et!
+            </p>
+          </VerticalTimelineElement>
+          <VerticalTimelineElement
+            contentStyle={{ background: "#272727", color: "#fff" }}
+            contentArrowStyle={{ borderLeft: "7px solid rbg(33,150,250)" }}
+            date="End Q4 2023"
+          >
+            <h2 className="text-mainWhite">Title</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              hic amet possimus excepturi, voluptatem doloribus incidunt ab
+              officiis recusandae assumenda perspiciatis perferendis natus
+              quaerat a id similique nulla eaque et!
+            </p>
+          </VerticalTimelineElement>
+        </VerticalTimeline>
       </section>
       <Footer />
     </main>

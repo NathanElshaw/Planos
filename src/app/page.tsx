@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
-      <section className="mt-2 mx-2 md:mx-20 lg:mx-60" id="main_hero">
+      <section className="mt-2 mx-2 md:mx-20 lg:mx-60 " id="main_hero">
         <div className="grid grid-cols-4 mr-5 text-5xl">
           <div className="col-span-3 ml-2">
             <span className="text-mainContrast font-extrabold">
@@ -65,7 +65,10 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section id="quick-info" className="mx-2 text-base lg:mx-60">
+      <section
+        id="quick-info"
+        className="px-2 pb-4 text-base lg:mx-60 border border-t-0 border-l-0 border-r-0 rounded-b-md border-b-lightGrey"
+      >
         <div
           id="info-title"
           className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite"
@@ -141,7 +144,10 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section id="how-it-works" className="mx-2 text-base lg:mx-60">
+      <section
+        id="how-it-works"
+        className="px-2 pb-4 text-base lg:mx-60 border border-t-0 border-l-0 border-r-0 rounded-b-md border-b-lightGrey"
+      >
         <div className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite">
           <h2 className="text-3xl">How it works</h2>
         </div>
@@ -176,22 +182,23 @@ export default function Home() {
         </div>
       </section>
       <section id="timeline" className="mx-2 mt-10 text-base lg:mx-60">
-        <div className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite">
-          <h2>Timeline projection</h2>
+        <div className="flex justify-center text-center py-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite">
+          <h2 className="text-3xl">Timeline projection</h2>
         </div>
-        <VerticalTimeline>
+        <VerticalTimeline layout="2-columns">
           <VerticalTimelineElement
             contentStyle={{ background: "#272727", color: "#fff" }}
             contentArrowStyle={{ borderRight: "7px solid rbg(33,150,250)" }}
             date="End Q4 2023"
             textClassName="text-mainWhite"
           >
-            <h2 className="text-mainWhite">Title</h2>
+            <h2 className="text-mainWhite">Closed beta MVP</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              hic amet possimus excepturi, voluptatem doloribus incidunt ab
-              officiis recusandae assumenda perspiciatis perferendis natus
-              quaerat a id similique nulla eaque et!
+              Towards the end of Q4 we project to have a collaborative calendar
+              where companies can communicate where they may need worker to
+              finish jobs before the deadline. Furthermore will help to make
+              sure previous step were completed before sending the next phase
+              crew to find out that it was not ready.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement

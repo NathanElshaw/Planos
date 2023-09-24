@@ -32,7 +32,10 @@ export const Navbar = () => {
                 <a href="/about-us">About</a>
               </li>
               <li>
-                <a href="/info">More Info</a>
+                <a href="/features">Features</a>
+              </li>
+              <li>
+                <a href="/timeline">Timeline</a>
               </li>
               <li>
                 <a href="/sign-up">
@@ -58,13 +61,14 @@ export const Navbar = () => {
             <div
               className={
                 dropdown_Toggled === true
-                  ? "absolute top-[58px] w-[150px] translate-x-[-63%] rounded-md px-2 py-2 bg-mainDark border border-darkGrey"
+                  ? "absolute z-10 top-[58px] w-[150px] translate-x-[-63%] rounded-md px-2 py-2 bg-mainDark border border-darkGrey"
                   : "hidden"
               }
             >
               <div className="flex flex-col text-xl gap-y-3">
                 <a href="/about-us">About</a>
-                <a href="/info">More Info</a>
+                <a href="/Features">Features</a>
+                <a href="/timeline">Timeline</a>
                 <div>
                   <a href="/sign-up">
                     <Hero_Button
@@ -103,8 +107,17 @@ export const Footer = () => {
         <div className="grid grid-cols-2">
           <div className="grid grid-rows-2 ml-2 gap-y-2">
             <div className="flex flex-col gap-y-2 z-[1]">
-              <a href="/about-us">About</a>
-              <a href="/info">More Info</a>
+              <ol>
+                <li>
+                  <a href="/about-us">About</a>
+                </li>
+                <li>
+                  <a href="/Features">Features</a>
+                </li>
+                <li>
+                  <a href="/timeline">Timeline</a>
+                </li>
+              </ol>
             </div>
             <div className="z-[1]">
               <a href="/contact-us">

@@ -215,7 +215,10 @@ export default function Home() {
         </VerticalTimeline>
         <div className="flex flex-row-reverse my-2">
           <a href="/timeline">
-            <Hero_Button text_feild="See Full Timeline" />
+            <Hero_Button
+              text_feild="See Full Timeline"
+              styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
+            />
           </a>
         </div>
       </section>

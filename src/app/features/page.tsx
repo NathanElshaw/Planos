@@ -43,26 +43,60 @@ export default function Info() {
           <div>
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
-                <Image priority src={collaboration} alt="Collaboration" />
+                <Image priority src={""} alt="Role Communication" />
               </div>
             </div>
             <div className="text-center mx-2">
-              <span className="font-semibold text-lg md:text-xl lg:text-2xl">
-                Collaboration:{" "}
+              <span className="font-semibold text-lg sm:test-xl lg:text-2xl">
+                Role Based Communication
               </span>
               <p>
-                Embrace our app for seamless collaboration and peak
-                productivity. Real-time messaging, project management, and
-                document sharing keep teams connected. BIM integration ensures
-                data synchronization. Stay ahead with instant updates.
-                Experience the future of project management!
+                Something about communication based on roles so only relavent
+                information is push to those specific roles i.e plumber get
+                plumber info and changes and electricians get electrical info
+                and changes.
               </p>
             </div>
           </div>
           <div>
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
-                <Image priority src={estimates} alt="Collaboration" />
+                <Image priority src={""} alt="Timecard" />
+              </div>
+            </div>
+            <div className="text-center mx-2">
+              <span className="font-semibold text-lg sm:test-xl lg:text-2xl">
+                Timecards:
+              </span>
+              <p>
+                Online time cards help both field worker and office manager
+                manage time and stay orginized on how much time was spent on
+                each job for proper pay roll and proper invoices
+              </p>
+            </div>
+          </div>
+          <div>
+            <div className="flex justify-center my-2 mx-2">
+              <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                <Image priority src={""} alt="Plans" />
+              </div>
+            </div>
+            <div className="text-center mx-2">
+              <span className="font-semibold text-lg sm:test-xl lg:text-2xl">
+                Plans changes
+              </span>
+              <p>
+                probably rename. But pushes notification when designer changes
+                things and will push notification to target trade that the
+                changes may effect so they know in advance so they can make
+                changes quicker.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div className="flex justify-center my-2 mx-2">
+              <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                <Image priority src={estimates} alt="Estimates" />
               </div>
             </div>
             <div className="text-center mx-2">
@@ -133,6 +167,25 @@ export default function Info() {
                 expenses, with real-time tracking and automation. Boost cash
                 flow, improve relationships, and ensure smooth operations.
                 Embrace the future of construction projects
+              </p>
+            </div>
+          </div>
+          <div>
+            <div className="flex justify-center my-2 mx-2">
+              <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                <Image priority src={collaboration} alt="Collaboration" />
+              </div>
+            </div>
+            <div className="text-center mx-2">
+              <span className="font-semibold text-lg md:text-xl lg:text-2xl">
+                Collaboration:{" "}
+              </span>
+              <p>
+                Embrace our app for seamless collaboration and peak
+                productivity. Real-time messaging, project management, and
+                document sharing keep teams connected. BIM integration ensures
+                data synchronization. Stay ahead with instant updates.
+                Experience the future of project management!
               </p>
             </div>
           </div>

@@ -135,7 +135,7 @@ export default function Home() {
         <div className="flex flex-row-reverse mr-4 mt-3">
           <a href="/info">
             <Hero_Button
-              text_feild="Learn more"
+              text_feild="See more"
               styles="text-mainContrast bg-mainDark border border-mainContrast hover:text-mainDark"
             />
           </a>
@@ -145,34 +145,41 @@ export default function Home() {
         <div className="flex justify-center pb-2 mt-4 border border-l-0 border-r-0 border-t-0 rounded-b-md border-b-mainWhite">
           <h2 className="text-3xl">How it works</h2>
         </div>
-        <div id="as-single-compnay">
-          <div className="flex justify-center mt-2 md:ml-2">
-            <h2 className="text-xl font-semibold">As a Single Company:</h2>
+        <div className="md:grid md:grid-cols-2 mx-4 gap-x-4 ">
+          <div id="as-single-compnay">
+            <div className="flex justify-center mt-2 md:ml-2">
+              <h2 className="text-xl font-semibold">As a Single Company:</h2>
+            </div>
+            <div className="text-center my-2">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo
+                vitae laboriosam aliquid optio accusantium, eligendi nesciunt
+                soluta fugiat eos quidem consequatur impedit, tenetur itaque,
+                expedita id. Provident sint rerum beatae!
+              </p>
+            </div>
           </div>
-          <div className="text-center my-2">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo
-              vitae laboriosam aliquid optio accusantium, eligendi nesciunt
-              soluta fugiat eos quidem consequatur impedit, tenetur itaque,
-              expedita id. Provident sint rerum beatae!
-            </p>
-          </div>
-        </div>
-        <div id="working-with-multiple-companies">
-          <div className="flex justify-center mt-2 md:ml-2">
-            <h2 className="text-xl font-semibold">With Multiple Companies:</h2>
-          </div>
-          <div className="text-center my-2">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At beatae
-              eius deleniti optio, id similique dignissimos, blanditiis, aliquam
-              molestias exercitationem reprehenderit laudantium odit? Assumenda
-              eaque, consectetur expedita vitae veniam totam?
-            </p>
+          <div id="working-with-multiple-companies">
+            <div className="flex justify-center mt-2 md:ml-2">
+              <h2 className="text-xl font-semibold">
+                With Multiple Companies:
+              </h2>
+            </div>
+            <div className="text-center my-2">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                beatae eius deleniti optio, id similique dignissimos,
+                blanditiis, aliquam molestias exercitationem reprehenderit
+                laudantium odit? Assumenda eaque, consectetur expedita vitae
+                veniam totam?
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex flex-row-reverse">
-          <Hero_Button text_feild="Explore more" />
+          <a href="/features#collaboration">
+            <Hero_Button text_feild="Explore more" />
+          </a>
         </div>
       </section>
       <section id="timeline" className="mx-2 mt-10 text-base lg:mx-60">

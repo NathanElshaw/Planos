@@ -48,9 +48,9 @@ export default function ContactUs() {
           message="We will be in contact with you shortly!"
         />
       ) : (
-        <section id="contact-us-main">
-          <div className=" mx-4 my-4">
-            <h2 className="text-2xl">Contact Us!</h2>
+        <section id="contact-us-main" className="mx-4">
+          <div className="flex py-4 justify-center border border-t-0 border-l-0 border-r-0 border-b-mainWhite rounded-b-md">
+            <h2 className="text-3xl text-mainContrast">Reach out to us!</h2>
           </div>
           <div className="flex h-[85vh] w-[100%]">
             <div className="flex mx-auto my-auto">

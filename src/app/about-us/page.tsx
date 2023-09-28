@@ -5,7 +5,7 @@ export default function About() {
     <main>
       <Navbar />
       <section id="about-us-title">
-        <div className="mt-2 ml-2 sm:ml-4 md:ml-8 flex">
+        <div className="flex mx-4 py-4 justify-center border border-t-0 border-l-0 border-r-0 border-b-mainWhite rounded-b-md">
           <h1 className="text-3xl font-semibold text-mainContrast">About</h1>
         </div>
       </section>
@@ -18,7 +18,10 @@ export default function About() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
             accusamus quaerat pariatur quisquam suscipit veniam officiis vel,
             fugiat facilis tenetur sunt eos reiciendis? Ducimus, vel vero?
-            Minima optio suscipit facere?
+            Minima optio suscipit facere? Lorem ipsum dolor sit, amet
+            consectetur adipisicing elit. Commodi minus nulla explicabo natus
+            iusto repellat, ex adipisci numquam expedita fugit in exercitationem
+            quis consectetur culpa et unde. Vel, neque consequuntur?
           </p>
         </div>
         <div className="text-center mt-6">

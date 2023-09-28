@@ -190,13 +190,51 @@ export default function Info() {
             </div>
           </div>
         </div>
-        <div className="mt-4 flex flex-col">
+        <div className="flex flex-row-reverse mr-4">
           <p className="text-l">Interested in signing up for early access?</p>
-          <div className="flex flex-row-reverse mt-4">
-            <a href="/sign-up">
-              <Hero_Button text_feild="Sign Up for Beta!" />
-            </a>
+        </div>
+        <div className="flex flex-row-reverse mt-4">
+          <a href="/sign-up">
+            <Hero_Button text_feild="Sign Up for Beta!" />
+          </a>
+        </div>
+      </section>
+      <section id="collaboration">
+        <div className="flex justify-center mx-4 py-4 border border-l-0 border-r-0 border-t-0 border-b-mainWhite rounded-b-md">
+          <h2 className="text-3xl text-mainContrast">Collaboration Features</h2>
+        </div>
+        <div className="flex justify-center py-4 mx-4">
+          <h3 className="text-2xl">Title</h3>
+        </div>
+        <div className="md:grid mx-0 sm:mx-24 md:grid-cols-2 md:gap-y-6 md:gap-x-4 lg:text-lg ">
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              dolorem tempore, ratione quidem numquam hic adipisci magnam in
+              tempora deleniti, natus, qui maxime nulla dolores molestias ex
+              voluptate unde nam.
+            </p>
           </div>
+          <div>img</div>
+
+          <div>img</div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              dolorem tempore, ratione quidem numquam hic adipisci magnam in
+              tempora deleniti, natus, qui maxime nulla dolores molestias ex
+              voluptate unde nam.
+            </p>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              dolorem tempore, ratione quidem numquam hic adipisci magnam in
+              tempora deleniti, natus, qui maxime nulla dolores molestias ex
+              voluptate unde nam.
+            </p>
+          </div>
+          <div>img</div>
         </div>
       </section>
       <Footer />

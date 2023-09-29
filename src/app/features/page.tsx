@@ -61,6 +61,25 @@ export default function Info() {
           <div>
             <div className="flex justify-center my-2 mx-2">
               <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
+                <Image priority src={""} alt="Open jobs order" />
+              </div>
+            </div>
+            <div className="text-center mx-2">
+              <span className="font-semibold text-lg sm:test-xl lg:text-2xl">
+                Open Job Orders
+              </span>
+              <p>
+                Ever feel like when you or your workers call the warehouse
+                (in-house or out of house) they always seem to bring out the
+                wrong part(s)? with our open job orders all parties involved can
+                see the order and what is needed to help prevent the wrong items
+                from showing up on your job site.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div className="flex justify-center my-2 mx-2">
+              <div className="bg-darkGrey px-3 py-3 rounded-full drop-shadow-md shadow-black">
                 <Image priority src={""} alt="Timecard" />
               </div>
             </div>
